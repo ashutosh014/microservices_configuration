@@ -8,6 +8,22 @@ spring:
   datasource:
     username: root
     password: root
+    
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-76776418.okta.com
+        client:
+          registration:
+            my-internal-client:
+              provider: okta
+              authorization-grant-type: client_credentials
+              client-id: 0oampir1nzFAgDBD05d7
+              client-secret: zUIvVs84h9dmek3UXJo1iAgsqsZ8DG2b-x_GNZ5FN-yEfeZiIuQ2q6AiZxkr_ZUq
+          provider:
+            okta:
+              issuer-uri: https://dev-76776418.okta.com
 
 eureka:
   client:
@@ -15,3 +31,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   register-with-eureka: true
   fetch-registry: true
+
+
+okta:
+  oauth2:
+    issuer: https://dev-76776418.okta.com
+    audience: api://default
